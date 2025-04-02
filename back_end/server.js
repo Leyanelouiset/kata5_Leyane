@@ -1,16 +1,16 @@
 import express from 'express'; //un serveur est un ordinateur qui ecoute
-//import { router } from './routes.js';
-
 const app = express();
+import dotenv from 'dotenv';
+dotenv.config();
+const port = process.env.PORT;
+
+app.get('/',(req,res)=>{
+    res.send('hello world')
+})
 
 app.use(express.json());
 
-app.use(router);
 
-app.get("/", (req,res) =>{
-    res.send("bonjour")
-});
-
-app.listen(3000, async () => {
-console.log(`Server running on http://localhost:3000`);
+app.listen(port, async () => {
+console.log(`Server running on http://localhost:${port}`);
 });
